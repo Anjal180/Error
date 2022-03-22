@@ -4,7 +4,12 @@ include 'connection.php';
 $msg="";
 ?>
 
-<!---------------- TABLE -------------------------------->
+<!------------------------------ Main Page Style Start ----------------------------->
+<h3 id="h3">Document Management <hr></h3>
+
+
+
+<!------------------------ TABLE----------------------->
 
 <div class="container">   
   <form method="post" action="" enctype="multipart/form-data">    
@@ -22,8 +27,6 @@ $msg="";
       
     </tbody>
     <tfoot>
-      <!---------------- ADD AND UPLOAD BUTTON-------------------------------->
-      
       <tr>
         <td colspan="4"></td>
         <td><button type="button" id="add" data-id="32" class="btn btn-primary" ><i class="bi bi-plus-circle-fill"></i>Add</button>
@@ -34,14 +37,15 @@ $msg="";
   </form> 
 </div>
 
-<!---------------- ADD ROW DYNAMICALY -------------------------------->
+<!------------------------ JQUERY SCRIPT FOR ADD ROW ----------------------->
+<!------------------------ VAR X=1 (ID FOR EACH FIELD BUT ITS NOT INCREASING) ----------------------->
 <script>
 var x=1;
 $(document).ready(function() {
   
     var html = '<tr>';
     html += '<td></td>';
-    html += '<td><select name="doctyp[]" class="form-select "><option >choose</option><?php echo fill_select_box($conn);?> </select></td > ';
+    html += '<td><select name="doctyp[]" class="form-select "><option >choose</option></select></td > ';
     html += '<td><input type="file" name="doc[]" id="inputfile[]" data-id='+x+' class="form-control inputfile"/></td>';
     html += ' <td><input type="text" class="outputfile" id="outputfile'+x+'" name="filename[]"><input id="extension'+x+'" type="text" name="extension" disabled></td>';
     html += '<td><button type="button" id="delete" class="btn btn-primary"><i class="bi bi-trash3-fill"></i></button></td>';
@@ -58,7 +62,7 @@ $(document).ready(function() {
 });
 // x++;
 
-<!---------------- ADD FILENAME TO TEXTFILED -------------------------------->
+<!------------------------ FILENAME ----------------------->
 $(document).on('change', '.inputfile', function (e) {
     var imgid = $(this).attr("id");
     var filenames = [].slice.call(e.target.files).map(function (f) {
