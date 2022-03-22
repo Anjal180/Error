@@ -4,7 +4,7 @@ include 'connection.php';
 $msg="";
 ?>
 
-
+<!---------------- TABLE -------------------------------->
 
 <div class="container">   
   <form method="post" action="" enctype="multipart/form-data">    
@@ -19,21 +19,11 @@ $msg="";
       </tr>
     </thead>
     <tbody>
-
-      <!-- <tr>
-        <td></td>
-        <td><select name="doctyp[]" class="form-select ">
-        <option selected>choose</option>
-            < ?php echo fill_select_box($conn); ?>
-          </select>
-        </td>
-        <td><input type="file" name="doc[]" id='inputfile[]' data-id="1" class="form-control inputfile"/></td>
-        <td><input type="text" class="outputfile" id="outputfile1" name="filename[]"><input id="extension1" type="text" name="extension" disabled></td>
-        <td><button type="button" id="delete" class="btn btn-primary"><i class="bi bi-trash3-fill"></i></button></td>
-      </tr> -->
       
     </tbody>
     <tfoot>
+      <!---------------- ADD AND UPLOAD BUTTON-------------------------------->
+      
       <tr>
         <td colspan="4"></td>
         <td><button type="button" id="add" data-id="32" class="btn btn-primary" ><i class="bi bi-plus-circle-fill"></i>Add</button>
@@ -43,17 +33,8 @@ $msg="";
   </table>
   </form> 
 </div>
-<div class="py-5"></div><div class="py-2"></div>
-<!-- <script > function getFile(filePath) {
-    return filePath.substr(filePath.lastIndexOf('\\') + 1).split('.')[0];
-}
 
-function getoutput() {
-    outputfile.value = getFile(inputfile.value);
-    extension.value = inputfile.value.split('.')[1];
-}</script> -->
-
-
+<!---------------- ADD ROW DYNAMICALY -------------------------------->
 <script>
 var x=1;
 $(document).ready(function() {
@@ -77,7 +58,7 @@ $(document).ready(function() {
 });
 // x++;
 
-// Using delegation.
+<!---------------- ADD FILENAME TO TEXTFILED -------------------------------->
 $(document).on('change', '.inputfile', function (e) {
     var imgid = $(this).attr("id");
     var filenames = [].slice.call(e.target.files).map(function (f) {
