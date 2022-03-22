@@ -48,7 +48,7 @@ $(document).ready(function() {
     html += '<td><select name="doctyp[]" class="form-select "><option >choose</option></select></td > ';
     html += '<td><input type="file" name="doc[]" id="inputfile[]" data-id='+x+' class="form-control inputfile"/></td>';
     html += ' <td><input type="text" class="outputfile" id="outputfile'+x+'" name="filename[]"><input id="extension'+x+'" type="text" name="extension" disabled></td>';
-    html += '<td><button type="button" id="delete" class="btn btn-primary"><i class="bi bi-trash3-fill"></i></button></td>';
+    html += '<td><button type="button" id="delete" class="btn btn-primary"><i class="bi bi-trash3-fill"></i>delete</button></td>';
     html += '</tr>';
     // x++;
     // var x = 2;
@@ -62,7 +62,7 @@ $(document).ready(function() {
 });
 // x++;
 
-<!------------------------ FILENAME ----------------------->
+<!------------------------ filename setting ----------------------->
 $(document).on('change', '.inputfile', function (e) {
     var imgid = $(this).attr("id");
     var filenames = [].slice.call(e.target.files).map(function (f) {
